@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<body>
+    <center>
+      <h1>TENAGA PENDIDIK FKIP UNTIRTA</h1>
+    </center>
+    <br>
+   
+    
+    <center>
+    <table border="1" style="background-color:#DBC8AC;">
+        <tr>
+            <tr bgcolor="#B73E3E">
+            <th>No</th>
+            <th>NIP</th>
+            <th>Nama</th>
+            <th>Jabatan</th>
+        </tr>
+    </tr>
+        
+            {% for tendik in educator %}
+            <tr>
+                <td>{{tendik.no}}</td>
+                <td>{{tendik.nip}}</td>
+                <td>{{tendik.nama}}</td>
+                <td>{{tendik.jabatan}}</td>
+             
+    
+    
+            </tr>
+            {% endfor %}
+        
+    </table>
+  
+    </center>
+    </body>
+
+{% endblock %}
