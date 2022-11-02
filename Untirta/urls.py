@@ -30,22 +30,45 @@ from universitas.views import universitas
 from dosen.views import dosen
 from mahasiswa.views import mahasiswa
 from tendik.views import tendik
+from mahasiswa.views import tambah_mahasiswa
+from dosen.views import tambah_dosen
+from tendik.views import tambah_tendik
+from mahasiswa.views import ubah_mahasiswa
+from mahasiswa.views import hapus_mahasiswa
+from dosen.views import ubah_dosen
+from dosen.views import hapus_dosen
+from tendik.views import ubah_tendik
+from tendik.views import hapus_tendik
+
+
+
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('FAPERTA/', prodi1),
-    path('FEB/', prodi2),
-    path('FH/', prodi3),
-    path('FISIP/', prodi4),
-    path('FK/', prodi5),
-    path('FKIP/', prodi6),
-    path('FT/', prodi7),
-    path('pascasarjana/', prodi8),
+    path('FAPERTA', prodi1,name="FAPERTA"),
+    path('FEB', prodi2,name="FEB"),
+    path('FH', prodi3,name="FH"),
+    path('FISIP', prodi4,name="FISIP"),
+    path('FK', prodi5,name="FK"),
+    path('FKIP', prodi6,name="FKIP"),
+    path('FT', prodi7,name="FT"),
+    path('pascasarjana/', prodi8,),
     path('profil/', profil),
     path('universitas/', universitas),
     path('dosen/', dosen),
     path('mahasiswa/', mahasiswa),
     path('tendik/', tendik),
+    path('tambah-mahasiswa/', tambah_mahasiswa),
+    path('tambah-dosen/', tambah_dosen),
+    path('tambah-tendik/', tambah_tendik),
+    path('mahasiswa/ubah/<int:id_mahasiswa>', ubah_mahasiswa, name='ubah_mahasiswa'),
+    path('mahasiswa/hapus/<int:id_mahasiswa>', hapus_mahasiswa, name='hapus_mahasiswa'),
+    path('dosen/ubah/<int:id_dosen>', ubah_dosen, name='ubah_dosen'),
+    path('dosen/hapus/<int:id_dosen>', hapus_dosen, name='hapus_dosen'),
+    path('tendik/ubah/<int:id_tendik>', ubah_tendik, name='ubah_tendik'),
+    path('tendik/hapus/<int:id_tendik>', hapus_tendik, name='hapus_tendik'),
 
 
 ]

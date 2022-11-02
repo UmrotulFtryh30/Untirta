@@ -4,7 +4,7 @@
 
 <body>
     <center>
-      <h1>TENAGA PENDIDIK FKIP UNTIRTA</h1>
+      <h1>Tenaga Pendidik FKIP UNTIRTA</h1>
     </center>
     <br>
    
@@ -17,24 +17,31 @@
             <th>NIP</th>
             <th>Nama</th>
             <th>Jabatan</th>
+            <th>ACTION</th>
         </tr>
     </tr>
         
             {% for tendik in educator %}
             <tr>
-                <td>{{tendik.no}}</td>
+                <td><a href="{% url 'ubah_tendik' tendik.id %}">{{tendik.no}}</a></td>
                 <td>{{tendik.nip}}</td>
                 <td>{{tendik.nama}}</td>
                 <td>{{tendik.jabatan}}</td>
-             
-    
-    
+                <td>
+                    {% if tendik.foto %}
+                    <img src="{{ tendik.foto.url }}" width="100px">
+                    {% endif %}
+                </td>
+                <td>
+                  <a href="{% url 'hapus_tendik' tendik.id %}" class="btn btn-danger">Hapus</a>
+              </td>
             </tr>
             {% endfor %}
         
     </table>
   
     </center>
+    
     </body>
 
 {% endblock %}

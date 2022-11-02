@@ -17,30 +17,36 @@
             <th>NIP</th>
             <th>Nama</th>
             <th>Jabatan</th>
+            <th>Fakultas</th>
             <th>Email</th>
             <th>Foto</th>
+            <th>ACTION</th>
         </tr>
         </tr>
+
         {% for dosen in lecturer %}
           <tr>
-              <td>{{dosen.no}}</td>
+            <td><a href="{% url 'ubah_dosen' dosen.id %}">{{dosen.no}}</a></td>
               <td>{{dosen.nip}}</td>
               <td>{{dosen.nama}}</td>
               <td>{{dosen.jabatan}}</td>
+              <td>{{dosen.fakultas}}</td>
               <td>{{dosen.email}}</td>
               <td>
                   {% if dosen.foto %}
                   <img src="{{ dosen.foto.url }}" width="100px">
                   {% endif %}
               </td>
-  
-  
+              <td>
+                <a href="{% url 'hapus_dosen' dosen.id %}" class="btn btn-danger">Hapus</a>
+            </td>
           </tr>
           {% endfor %}
       
   </table>
 
   </center>
+
   </body>
 
 {% endblock %}

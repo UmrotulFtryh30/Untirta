@@ -19,28 +19,34 @@
             <th>Tempat, Tanggal Lahir</th>
             <th>Email</th>
             <th>Foto</th>
+            <th>ACTION</th>
         </tr>
         </tr>
         
             {% for mahasiswa in student %}
+            
             <tr>
-                <td>{{mahasiswa.no}}</td>
+                <td><a href="{% url 'ubah_mahasiswa' mahasiswa.id %}">{{mahasiswa.no}}</a></td>
                 <td>{{mahasiswa.nama}}</td>
                 <td>{{mahasiswa.nim}}</td>
                 <td>{{mahasiswa.ttl}}</td>
                 <td>{{mahasiswa.email}}</td>
                 <td>
-                    {% if mahasiswa.foto %}
-                    <img src="{{ mahasiswa.foto.url }}" width="100px">
+                    {% if mahasiswa.foto %} 
+                    <img src="{{mahasiswa.foto.url}}" width="100px">
                     {% endif %}
                 </td>
-    
-    
+                <td>
+                    <a href="{% url 'hapus_mahasiswa' mahasiswa.id %}" class="btn btn-danger">Hapus</a>
+                </td>
             </tr>
             {% endfor %}
         
-        </table>
-        </center>
+
+    </table>
+
+    </center>
+    
         </body>
 
 {% endblock %}
